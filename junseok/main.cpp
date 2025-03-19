@@ -1,8 +1,8 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
-
+string a;
 int main() {
-  cout << "Hello, world!" << endl;
+  cin >> a;
+  cout << a << "\n";
   return 0;
 }
