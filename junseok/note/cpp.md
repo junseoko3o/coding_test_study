@@ -110,7 +110,7 @@ int main() {
   return 0;
 }
 ```
-- scanf는 이여ㅛㅇ해야할때 말고는 cin사용 추천 
+- 일반적으로는 cin사용 추천 
 - scanf로 받을 수 있는 타입과 형식
   - d int / c char / s string / lf double / ld long long
 
@@ -125,6 +125,41 @@ int main() {
   printf("\n%d %d\n", a, b);
   scanf("%lf", &c);
   printf("%lf\n", c);
+  return 0;
+}
+```
+
+- getline
+- 개행 문자를 한번에 받기
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+string s;
+int main() {
+  getline(cin, s);
+  cout << s << '\n';
+  return 0;
+}
+```
+- \n를 줄의 끝으로 인식하고 그 개행 문자 직전까지 입력 받는다.
+- 종결 문자를 사용하고 싶으면 세 번째 인자로 전달.
+- getline(cin, line, '.');
+
+- 주의사항
+- cin으로 T개의 getline을 받을지를 설정하고 T개 만큼 getline의 입력이 들어오는 상황일때, 특정 문자열 기반으로 버퍼플래시를 하고 받아야 한다.
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int T;
+string s;
+int main() {
+  cin >> T;
+  string bufferflush;
+  getline(cin, bufferflush);
+  for(int i = 0; i < T; i++) {
+    getline(cin, s);
+    cout << s << "\n";
+  }
   return 0;
 }
 ```
