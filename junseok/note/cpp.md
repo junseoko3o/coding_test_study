@@ -193,3 +193,49 @@ int main() {
   return 0; 
 }
 ```
+
+- printf
+- 형식을 지정해서 출력하면 좋다.
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int a = 1, b = 2;
+int main() {
+  printf("홍철 %d : 지수 %d\n", a, b);
+  return 0;
+}
+```
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+double a = 1.23456789;
+int b = 12;
+int c = 2;
+int main(){
+  printf("%.6lf\n", a);
+  printf("%02d\n", b);
+  printf("%02d\n", c);
+  return 0;
+}
+```
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+int a = 1;
+char s = 'a';
+string str = "어벤져스";
+double b = 1.223123;
+int main(){
+  printf("아이엠어 아이언맨 : %d\n", a);
+  printf("아이엠어 아이언맨 : %c\n", s);
+  printf("아이엠어 아이언맨 : %s\n", str.c_str();
+  printf("아이엠어 아이언맨 : %lf\n", b);
+  return 0;
+}
+```
+
+- c_str() 
+- printf 기반으로 문자열을 출력하려면 string을 문자열에 대한 포인터(char *) 타입으로 바꿔줘야 하기 떄문. 그래서 보통 문자열은 간단히 cout 사용하는게 좋다.
