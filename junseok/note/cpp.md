@@ -163,3 +163,33 @@ int main() {
   return 0;
 }
 ```
+
+- cout
+- cou << 출력할 것 << "\n";
+```c++
+#include<sits/stdc++.h>
+using namespace std;
+string a = "hihi";
+string b = "hello bye...";
+int main() {
+  cout << a << "\n";
+  cout << a << " " << "" << b << '\n';
+  return 0;
+}
+```
+
+- cout 실수 출력
+- 기본적으로는 일부분만 출력이 된다.
+- cout << fixed << setprecision(자리수) << 변수 << "\n";
+```c++
+#include<bits./stdc++.h>
+using namespace std;
+typedef long long ll;
+double a = 1.23456789;
+int main() {
+  cout << a << "\n"; // 1.23457
+  cout << fixed << setprecision(3) << a << "\n";  // 1.235
+  cout << fixed << setprecision(8) << a << "\n"; // 1.23456789
+  return 0; 
+}
+```
