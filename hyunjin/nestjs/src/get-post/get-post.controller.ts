@@ -17,7 +17,7 @@ export class GetPostController {
     return 'Depth ONE Hello!';
   }
 
-  @Get('/depth/*')
+  @Get('/depth/*one')
   getDepthAsterisk(): string {
     return 'Depth * Hello!';
   }
