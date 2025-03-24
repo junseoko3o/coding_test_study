@@ -239,3 +239,6 @@ int main(){
 
 - c_str() 
 - printf 기반으로 문자열을 출력하려면 string을 문자열에 대한 포인터(char *) 타입으로 바꿔줘야 하기 떄문. 그래서 보통 문자열은 간단히 cout 사용하는게 좋다.
+
+### 타입
+- void, char, string, bool, int, long long, double, unsigned long long
