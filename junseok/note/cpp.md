@@ -242,3 +242,126 @@ int main(){
 
 ### 타입
 - void, char, string, bool, int, long long, double, unsigned long long
+
+
+- void
+  - 리턴하는 값이 없다.
+  
+```c++
+#include <bits/>stdc++.h>
+using namespace std;
+int ret = 1;
+void a() {
+  ret = 2;
+  cout << ret << "\n";
+  return;
+}
+
+int main() {
+  a();
+  return 0;
+}
+```
+
+- char
+  - 작은 따옴표로 선언하며 1바이트 크기
+
+```c++
+#include <bits/>stdc++.h>
+using namespace std;
+int main() {
+  char a = 'a';
+  cout << a << "\n";
+  return 0;
+}
+```
+
+- char 초기화 할떄 주의점
+  - char에 아무것도 할당하지 않으면 널로 초기화. 이건 빈 문자열이 아니다.
+  - 특정 값으로 초기화
+    - 변수를 특정 문자 또는 숫자 값으로 초기화.
+  - 널 문자로 초기화
+    - char ch = '\0';
+
+```c++
+#include <bits/>stdc++.h>
+using namespace std;
+int main() {
+  char a = '\0';
+  char b = 0;
+  char c = NULL;
+  string d = "";
+  cout << "hello";
+  if (a == b) cout << 1;
+  if (b == c) cout << 1;
+  if (string(1, a) == d) cout << 1;
+  return 0;
+}
+```
+
+
+- string
+
+```c++
+#include <bits/>stdc++.h>
+using namespace std;
+int main() {
+  string a = "나는야";
+  cout << a[0] << "\n";
+  cout << a[0] << a[1] << a[2] << '\n';
+  cout << a << "\n";
+  string b = "abc";
+  cout << b[0] << "\n";
+  cout << b << "\n";
+  return 0;
+}
+```
+
+- 1번쨰 1바이트 출력하기 때문에 한글은 한글자당 3바이트라 이상한 문자가 출려됨.
+```c++
+#include <bits/>stdc++.h>
+using namespace std;
+int main() {
+  string a = "love is";
+  a += " pain!";
+  a.pop_back();
+  cout << a << " : " << a.size() << "\n";
+  cout << char(* a.begin()) << "\n";
+  cout << char(* (a.end() - 1)) << "\n";
+
+  a.insert(0, "test ");
+  cout << a << " : " << a.size() << "\n";
+  
+  a.erase(0 ,5);
+  cout << a << " : " << a.size() << "\n";
+
+  auto it = a.fine("love");
+  if (it != string::nops) {
+    cout << "포함되어 있다." << "\n";
+  }
+
+  cout << it << "\n";
+  cout << string::npos << "\n";
+  cout << a.substr(5, 2) << "\n";
+  return 0;
+}
+```
+
+- push_back()
+  - 문자 하나씩 밖에 더하지 못해 보통은 += 을 사용한다.
+- begin()
+  - 문자열의 첫번째 요소를 가리키는 이터레이터 반환.
+- end()
+  - 문자열의 마지막 요소 그 다음을 가리지킄 이터레이터 반환.
+- insert(위치, 문자열)
+  - 특정 위치 문자열 삽입 O(n)
+- erase(위치, 크기)
+  - 특정 위치에 크기 만큼 문자열 삭제.
+- pop_back()
+  - 문자열 끝을 지운다. O(1)
+- find(문자열)
+  - 특정 문자열을 찾아 위치 반환.
+  - 못찾으면 string::npos 반환 -> size_t 타입의 최대값을 의미.(운영체제마다 값이 다름)
+- substr(위치, 크기)
+  - 특정 위치에서 크기만큼의 문자열 추출.
+  - 크기를 넣지 않으면 가장 끝자리까지 문자열 추출함.
