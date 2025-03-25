@@ -110,7 +110,7 @@ int main() {
   return 0;
 }
 ```
-- scanf는 이여ㅛㅇ해야할때 말고는 cin사용 추천 
+- 일반적으로는 cin사용 추천 
 - scanf로 받을 수 있는 타입과 형식
   - d int / c char / s string / lf double / ld long long
 
@@ -128,3 +128,117 @@ int main() {
   return 0;
 }
 ```
+
+- getline
+- 개행 문자를 한번에 받기
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+string s;
+int main() {
+  getline(cin, s);
+  cout << s << '\n';
+  return 0;
+}
+```
+- \n를 줄의 끝으로 인식하고 그 개행 문자 직전까지 입력 받는다.
+- 종결 문자를 사용하고 싶으면 세 번째 인자로 전달.
+- getline(cin, line, '.');
+
+- 주의사항
+- cin으로 T개의 getline을 받을지를 설정하고 T개 만큼 getline의 입력이 들어오는 상황일때, 특정 문자열 기반으로 버퍼플래시를 하고 받아야 한다.
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int T;
+string s;
+int main() {
+  cin >> T;
+  string bufferflush;
+  getline(cin, bufferflush);
+  for(int i = 0; i < T; i++) {
+    getline(cin, s);
+    cout << s << "\n";
+  }
+  return 0;
+}
+```
+
+- cout
+- cou << 출력할 것 << "\n";
+```c++
+#include<sits/stdc++.h>
+using namespace std;
+string a = "hihi";
+string b = "hello bye...";
+int main() {
+  cout << a << "\n";
+  cout << a << " " << "" << b << '\n';
+  return 0;
+}
+```
+
+- cout 실수 출력
+- 기본적으로는 일부분만 출력이 된다.
+- cout << fixed << setprecision(자리수) << 변수 << "\n";
+```c++
+#include<bits./stdc++.h>
+using namespace std;
+typedef long long ll;
+double a = 1.23456789;
+int main() {
+  cout << a << "\n"; // 1.23457
+  cout << fixed << setprecision(3) << a << "\n";  // 1.235
+  cout << fixed << setprecision(8) << a << "\n"; // 1.23456789
+  return 0; 
+}
+```
+
+- printf
+- 형식을 지정해서 출력하면 좋다.
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int a = 1, b = 2;
+int main() {
+  printf("홍철 %d : 지수 %d\n", a, b);
+  return 0;
+}
+```
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+double a = 1.23456789;
+int b = 12;
+int c = 2;
+int main(){
+  printf("%.6lf\n", a);
+  printf("%02d\n", b);
+  printf("%02d\n", c);
+  return 0;
+}
+```
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+int a = 1;
+char s = 'a';
+string str = "어벤져스";
+double b = 1.223123;
+int main(){
+  printf("아이엠어 아이언맨 : %d\n", a);
+  printf("아이엠어 아이언맨 : %c\n", s);
+  printf("아이엠어 아이언맨 : %s\n", str.c_str();
+  printf("아이엠어 아이언맨 : %lf\n", b);
+  return 0;
+}
+```
+
+- c_str() 
+- printf 기반으로 문자열을 출력하려면 string을 문자열에 대한 포인터(char *) 타입으로 바꿔줘야 하기 떄문. 그래서 보통 문자열은 간단히 cout 사용하는게 좋다.
+
+### 타입
+- void, char, string, bool, int, long long, double, unsigned long long
