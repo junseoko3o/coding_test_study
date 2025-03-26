@@ -365,3 +365,20 @@ int main() {
 - substr(위치, 크기)
   - 특정 위치에서 크기만큼의 문자열 추출.
   - 크기를 넣지 않으면 가장 끝자리까지 문자열 추출함.
+- reverse()
+  - string은 지원하지 않는다 문자열은 STL에서 지원하는 함수인 reverse()사용.
+  - void reverse(BidirectionalIterator first, BidirectionalIterator last);
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+  string a = "It's hard to have a sore leg";
+  reverse(a.begin(), a.end());
+  cout << a << "\n";
+  reverse(a.begin(), a.end());
+  cout << a<< "\n";
+  reverse(a.begin() + 3, a.end());
+  cout << a<< "\n";
+  return 0;
+}
+```
