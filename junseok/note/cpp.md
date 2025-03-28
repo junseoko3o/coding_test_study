@@ -382,3 +382,33 @@ int main() {
   return 0;
 }
 ```
+- split()
+  - 특정 문자열 기준으로 쪼개어서 배열화시키는 함수.
+  - c++에서는 지원하지 않아서 직접 만들어야함.
+  
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<string> split(const string& input, string delimiter) {
+  vector<string> result;
+  auto start = 0;
+  auto end = input.find(delimiter);
+  while (end != string::npos) {
+    result.push_back(input.substr(start, end - start));
+    start = end + delimiter.size();
+    end = input.find(delimiter, start);
+  }
+  result.push_back(input.substr(start));
+  return result;
+}
+
+int main() {
+  string str = "one->two->three->four";
+  vector<string> numbers = split(str, "->");
+  for (const string& number : numbers) {
+    cout << number << endl;
+  }
+  return 0;
+}
+```
