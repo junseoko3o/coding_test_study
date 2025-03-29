@@ -412,3 +412,34 @@ int main() {
   return 0;
 }
 ```
+
+### 범위기반 for 루프
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+vector<int> a = {1, 2, 3};
+  for(int b : a) cout << b << "\n"; // 1
+  for(int i = 0; i < a.size(); i++) cout << a[i] << "\n"; // 2
+  return 0;
+}
+```
+- Array는 컴파일에 결정된 크기로만 (for int b : a)를 쓸 수 있다.
+- 만약 Array를 쓰고 싶으면 입력과는 무관하게 전역변수로 컴파일시기에 배열의 크기를 정해놔야한다.
+- 크기가 런타임시에 결정이 되고 범위기반 for루프를 쓰고 싶다면 vector를 써야한다.
+- VLA(Variable Length Array)의 이유 때문.
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+int n;
+int main() {
+  51
+  cin >> n;
+  vector<int> a(n, 0);
+  for(int i : a){
+    cout << i << " ";
+  }
+  return 0;
+}
+```
