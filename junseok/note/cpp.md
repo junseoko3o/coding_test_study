@@ -469,3 +469,39 @@ arr 배열의 요소 개수: 10
 ```
 
 - 참고로 위 코드에서 sizeof(arr) / sizeof(arr[0])는 배열의 요소 개수를 구하는 전형적인 기법.
+
+- atio(s.c_str())
+  - 문자열 s를 정수 int로 변환하는 방법.(ASCII to integer) const char*
+  - 정수가 아닌 문자열이면 0을 반환한다.
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+  string s = "1";
+  string s2 = "amumu";
+  cout << atoi(s.c_str()) << '\n';
+  cout << atoi(s2.c_str()) << '\n';
+  return 0;
+}
+/*
+1
+0
+*/
+```
+
+- stoi()
+  - string을 받아서 정수 int 반환
+  - string으로 받은 그랒가 문자열인지 숫자인지 확인하려면 atoi()를 써야한다.
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+  string s = "1234";
+  int num = stoi(s);
+  cout << num; // 1234
+  return 0;
+}
+```
+
+
