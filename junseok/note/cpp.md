@@ -504,4 +504,48 @@ int main() {
 }
 ```
 
+- bool, 참과 거짓
+  - 1바이트 true, false / 1, 0
 
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL); cout.tie(NULL);
+  int a = -1;
+  cout << bool(a) << "\n";
+  a = 0;
+  cout << bool(a) << "\n";
+  a = 3;
+  cout << bool(a) << "\n";
+}
+```
+
+- int, 4바이트짜리 정수
+  - -2,147,483,648 ~ 2,147,483,647
+  - 약 20억까지 표현 가능.
+  - 20억 넘어간다면 int가 아니라 long long을 써야함.
+
+- int 연산
+  - int로 선언한 변수끼리 연산을 하게 되었을 때 실수가 나오면 소수점 아래 있는 수는 버림된다.
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL); cout.tie(NULL);
+  int a = 3;
+  int b = 2;
+  cout << a / b << '\n'; // 1
+  double c = 3;
+  double d = 2;
+  cout << c / d << '\n'; // 1.5
+}
+```
+
+- const
+  - 수정할 수 없는 변수를 정할때 쓴다.
+  - 변하지 않는 상수를 미리 설정한다.
+  - 함수매개변수로 넘겼을 때 매개변수 수정도 방지가 가능.
+  - for반복문에 넣었을 때 상수로 만드는 기능.
