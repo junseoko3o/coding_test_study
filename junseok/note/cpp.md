@@ -572,3 +572,25 @@ int main() {
   - 부호가 없는 정수.
   - 0 ~ 18,446,744,073,709,551,615
   - long long에서 -로 표현할 범위를 몽땅 + 범위에 추가한 타입. 아주 가끔 쓰며 음수를 표현할 수 없다.
+
+### pair와 tuple
+- pair와 tuple은 타입이나 자료구조는 아님.
+- C++에서 제공하는 utility 라이브러리 헤더의 템플릿 클래스.
+- pair는 first와 second 라는 멤버변수를 가지는 클래스. 두가지 값을 담아야 할 때 사용.
+- tuple은 세가지 이상의 값을 담을 때 쓰는 클래스입니다.
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+pair<int, int> pi;
+tuple<int, int, int> tl;
+int a, b, c;
+int main(){
+  pi = {1, 2};
+  tl = make_tuple(1, 2, 3);
+  tie(a, b) = pi;
+  cout << a << " : " << b << "\n";
+  tie(a, b, c) = tl;
+  cout << a << " : " << b << " : "<< c << "\n";
+  return 0;
+}
+```
