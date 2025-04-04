@@ -644,3 +644,15 @@ int main() {
   return 0;
 }
 ```
+
+### 메모리와 포인터
+- 메모리
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int i;
+int main() {
+  cout << &i << "\n";
+  return 0;
+}
+```
