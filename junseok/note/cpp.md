@@ -594,3 +594,53 @@ int main(){
   return 0;
 }
 ```
+
+- auto
+  - 타입추론을 해 결정되는 타입.
+  - 주로 복잡하고 긴 타입의 변수명을 대신할 때 씀.
+
+- 타입변환
+  - double -> int
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+  double p = 1.5;
+  int a = (int) p * 100; // 100 p 1.5 -> 1로 치환 
+  int b = (int) 100 * p; // 150
+  cout << a << " : " << b << "\n";
+  return 0;
+}
+```
+
+  - 문자 <-> 숫자
+ ```c++
+ #include <bits/stdc++.h>
+ using namespace std;
+ int main() {
+  char a = "a";
+  cout << (int)a << "\n"; // 97
+  cout << (int)a - 97 << "\n"; // 0
+  cout << (int)a - "a" << "\n"; // 0
+  return 0;
+ }
+ ```
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+  strind s = "123456";
+  vector<int> digits;
+  for(int i = 0; i < s.legnth(); i++) {
+    int digit = s[i] - "0"; // 문자 -> 숫자화 시키기위헤 빼준다.
+    digits.push_back(digit);
+  }
+  
+  for(int i = 0; i < digits.size(); i++){
+    cout << digits[i] << " ";
+  }
+
+  return 0;
+}
+```
