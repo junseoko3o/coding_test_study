@@ -9,7 +9,7 @@ int main () {
     for (int i : a) cout << i << " ";
     cout << '\n';
   } while (next_permutation(a.begin(), a.end()));
-  
+
   return 0;
 
 }
