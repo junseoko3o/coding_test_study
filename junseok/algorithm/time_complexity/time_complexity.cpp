@@ -5,7 +5,7 @@ int main() {
   for(int i = 0; i < 10; i++) { // 10번
     for (int j = 0; j < n; j++) { // n번
       for (int k = 0; k < n; k++) { // n번
-        if (true) cout << i << "\n"; // 단순 로직
+        if (true) cout << i << "\n"; // 단순 로직 (입력크기가 아무리 증가해도 똑같음) O(1)
       }
     }
   }
