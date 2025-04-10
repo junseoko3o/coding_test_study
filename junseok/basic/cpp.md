@@ -656,3 +656,73 @@ int main() {
   return 0;
 }
 ```
+
+### 이터레이터
+- 컨테이너에 저장되어 있는 요소의 주소를 가리키는 개체.
+- 포인터를 일반화한 것.
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+  for(int i = 1; i <= 5; i++) v.push_back(i);
+  for(int i = 0; i < 5; i++) {
+    cout << i << "번째 요소 :" <<  *(v.begin() + i) << "\n";
+    cout << &*(v.begin() + i) << "\n";
+  }
+
+  for (auto it = v.begin(); it != v.end(); it++) {
+    cout << *it << " ";
+  }
+  cout << "\n";
+  for(vector<int>::iterator it = v.begin(); it != v.end(); it++) {
+    cout << *it << " ";
+  }
+  auto it = v.begin();
+  advance(it, 3);
+  cout << "\n";
+  cout << *it << "\n";
+  return 0;
+}
+```
+- begin()
+  - 컨테이너의 시작 위치 반환
+- end()
+  - 컨테이너의 끝 다음의 위치 반환.
+- advance(iterator, cnt)
+  - 해당 iterator를 cnt까지 증가.
+
+
+- 이터레이터와 포인터의 차이
+  - 이터레이터는 개체를 참조하는 것이기 때문에 제거가 불가능. 포인터는 delete를 통해 포인터 제거 가능
+
+
+### 함수
+- fill()
+  - O(n)의 시간복잡도를 가지며, 배열을 초기화 할때 사용.
+  - 배열의 모든 값이 아닌 일부값을 초기화하는 경우도 있지만 보통은 전체를 초기화 하는게 좋다.
+  - void fill(ForwardIterator first, ForwardIterator last, const T& val);
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int a[10];
+int b[10][10];
+int main() {
+  fill(&a[0], &a[10], 100);
+
+  for(int i = 0; i < 10; i++) {
+    cout << a[i] << " ";
+  }
+  cout << "\n";
+  fill(&b[0][0], &b[9][10], 2);
+  for(int i = 0; i < 10; i++) {
+    for(int j = 0; j < 10; j++) {
+      cout << b[i][j] << " ";
+    }
+    cout << "\n";
+  }
+  return 0;
+}
+```
