@@ -1,10 +1,89 @@
 # 디자인 패턴
 - 프로그램을 설계할 때 발생했던 문제점들을 객체 간의 상호 관계 등을 이용하여 해결할 수 있도록 하나의 규약 형태로 만들어 놓은 것.
   
-### 싱글톤 패턴
+## 싱글톤 패턴
 - 하나의 클래스에 오직 하나의 인스턴스만 가지는 패턴
 - 하나의 클래스를 기반으로 여러 개의 개별적인 인스턴스를 만들 수 있지만, 그렇게 하지 않고 하나의 클래스를 기반으로 단 하나의 인스턴스를 만들어 이를 기반으로 로직을 만드는데 쓰이며, 보통 데이터베이스 연결 모듈에 많이 사용.
 - 하나의 인스턴스를 만들어 놓고 해당 인스턴스를 다른 모듈들이 공유하며 사용하기 때문에 인스턴스를 생성할 때 드는 비용이 줄어드는 장점. 하지만 의존성이 높어진다는 단점도 존재.
+
+### 자바스크립트의 싱글톤 패턴
+- 리터럴 {} 또는 new Object로 객체를 생성하게 되면 다른 어떤 객체와도 같지 않기 때문에 이 자체로 싱글톤 패턴 구현 가능.
+```javascript
+const obj = {
+  a: 27
+}
+
+const obj2 = {
+  a: 27
+}
+console.log(obj === obj2) // false
+```
+- obj와 obj2는 다른 인스턴스를 가진다.
+
+```javascript
+class Singleton {
+  constructor() {
+    if (!Singleton.instance) {
+      Singletone.instance = this
+    }
+    return Singleton.instance
+  }
+  getInstance() {
+    return this.instance
+  }
+}
+const a = new Singleton()
+const b = new Singleton()
+console.log(a === b) // true 
+// a와 b는 Singleton.instance라는 하나의 인스턴스를 가지는 Singleton클래스를 통해 하나의 인스턴스를 갖게된다.
+```
+
+### 데이터베이스 연결 모듈
+```javascript
+const URL = "mongodb://localhost:27017/kundolapp"
+const createConnection = url => ({ "url" : url })
+class DB {
+  constructor(url) {
+    if(!DB.instance) {
+      DB.instance = createConnection(url)
+    }
+    return DB.instance
+  }
+  connect() {
+    return this.instance
+  }
+}
+const a = new DB(URL)
+const b = new DB(URL)
+console.log(a === b) // true
+```
+
+### 자바에서의 싱글톤 패턴
+```java
+class Singleton {
+  private static class singleInstanceHolder {
+    private static final Singleton INSTANCE = new Singleton();
+  }
+  public static Singleton getInstance() {
+    return singleInstanceHolder.INSTANCE;
+  }
+}
+
+public class HelloWorld {
+  public static void main(String[] args) {
+    Singleton a = Singleton.getInstance();
+    Singleton b = Singleton.getInstance();
+    System.out.println(a.hashCode());
+    System.out.println(b.hashCode());
+    if (a == b) {
+      System.out.println(true);
+    }
+  }
+}
+// 705927765
+// 705927765
+// true
+```
 
 ### mongoose의 싱글톤 패턴
 - mongoose의 데이터베이스를 연결 할 때 쓰는 connect()라는 함수는 싱글톤 인스턴스를 반환한다.
@@ -23,7 +102,6 @@
     - 모듈들이 더더욱 분리되어 클래스 수가 늘어나 복잡성이 증가될 수 있으며 약간의 런타임 패널티가 생기기도 한다.
   - 의존성 주입 원칙
     - 상위 모듈은 하위 모듈에서 어떠한 것도 가져오지 않아야한다. 또한 둘 다 추상화에 의존해야하며, 이때 추상화는 세부 사항에 의존하지 말아야한다.
-
 
 ## 팩토리 패턴
 - 객체를 사용하는 코드에서 객체 생성 부분을 떼어내 추상화한 패턴이자 상속 관계에 있는 두 클래스에서 상위 클래스가 중요한 뼈대를 결정하고, 하위 클래스에서 객체 생성에 관한 구체적인 내용을 결정
